@@ -48,7 +48,7 @@ shinyServer(function(input, output, session) {
   g = c(0, 0)
   h = c(0, 0)
   i = c(0, 0)
-  df = data.frame( "1st" = a, `2nd` = b, `3rd` = c, `4th` = d, `5th` = e, `6th` = f, `7th` = g, `8th` = h, `9th` = i)
+  df = data.frame("1st" = a, "2nd" = b, "3rd" = c, "4th" = d, "5th" = e, "6th" = f, "7th" = g, "8th" = h, "9th" = i)
   output$tbl <- renderRHandsontable({
     rhandsontable(df, rowHeaders = c(input$v1, input$v2), width = 700, rowHeaderWidth = 125, stringsAsFactors = FALSE)
     
@@ -85,6 +85,7 @@ shinyServer(function(input, output, session) {
                                          p("Please enter positive numbers only"))))  
       })
     }
-    else plot(new,lwd=3,col="Blue",pch=4,xlab = input$v1 ,ylab=input$v2,xlim = 0:1, ylim = 0:1, step = 0.2)
+    else if (bln1 && bln2 && !blc) plot(new,lwd=3,col="Blue",pch=4,xlab = input$v1 ,ylab=input$v2,xlim = 0:1, ylim = 0:1,step = 0.2)
+    else plot(new,lwd=3,col="Blue",pch=4,xlab = input$v1 ,ylab=input$v2, step = 0.2)
   })
 })
