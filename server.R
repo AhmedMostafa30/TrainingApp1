@@ -67,7 +67,7 @@ shinyServer(function(input, output, session) {
     for (i in 1:length(data[[1]])) {
       if (data[[1]][[i]] < 0) bln1 = 0
       if (data[[1]][[i]] < 0) bln2 = 0
-      if (is.character(data[[1]][[i]]) || is.character(data[[1]][[i]])) blc = 1
+      if (is.character(data[[1]][[i]]) || is.character(data[[2]][[i]])) blc = 1
     }
     if (blc) {
       output$out <- renderUI({
@@ -85,7 +85,7 @@ shinyServer(function(input, output, session) {
                                          p("Please enter positive numbers only"))))  
       })
     }
-    else if (bln1 && bln2 && !blc) plot(new,lwd=3,col="Blue",pch=4,xlab = input$v1 ,ylab=input$v2,xlim = 0:1, ylim = 0:1,step = 0.2)
+    # else if (bln1 && bln2 && !blc) plot(new,lwd=3,col="Blue",pch=4,xlab = input$v1 ,ylab=input$v2,xlim = 0:1, ylim = 0:1,step = 0.2)
     else plot(new,lwd=3,col="Blue",pch=4,xlab = input$v1 ,ylab=input$v2, step = 0.2)
   })
 })
